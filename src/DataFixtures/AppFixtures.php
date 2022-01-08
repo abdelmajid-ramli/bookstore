@@ -3,9 +3,15 @@
 namespace App\DataFixtures;
 
 use Faker\Factory;
+use App\Entity\User;
+use App\Entity\Genre;
+use App\Entity\Livre;
+use App\Entity\Auteur;
 
-use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Doctrine\Bundle\FixturesBundle\Fixture;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+
 
 class AppFixtures extends Fixture
 {
@@ -14,7 +20,7 @@ class AppFixtures extends Fixture
         $fake = Factory::create();
 
         for($i=0;$i<20;$i++){
-            
+
         }
         // $product = new Product();
         // $manager->persist($product);
