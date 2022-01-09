@@ -30,13 +30,13 @@
                     </a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#">Livres</a>
+                    <a class="nav-link" href="{{ path('livre_index') }}">Livres</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#">Auteurs</a>
+                    <a class="nav-link" href="{{ path('auteur_index') }}">Auteurs</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#">Genres</a>
+                    <a class="nav-link" href="{{ path('genre_index') }}">Genres</a>
                     </li>
 
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
@@ -57,8 +57,6 @@
         </nav>
         <div class="container mt-5">
         {% block body %}
-        {% endblock %}
-        {% block javascripts %}
         {% endblock %}
         </div>
     </body>

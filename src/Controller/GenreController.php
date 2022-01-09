@@ -19,8 +19,10 @@ class GenreController extends AbstractController
     #[Route('/', name: 'genre_index', methods: ['GET'])]
     public function index(GenreRepository $genreRepository): Response
     {
+        $genres =  $genreRepository->findAll();
+
         return $this->render('genre/index.html.twig', [
-            'genres' => $genreRepository->findAll(),
+            'genres' => $genres,
         ]);
     }
 

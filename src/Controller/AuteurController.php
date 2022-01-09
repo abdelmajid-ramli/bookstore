@@ -19,8 +19,10 @@ class AuteurController extends AbstractController
     #[Route('/', name: 'auteur_index', methods: ['GET'])]
     public function index(AuteurRepository $auteurRepository): Response
     {
+        $auteurs = $auteurRepository->findAll();
+
         return $this->render('auteur/index.html.twig', [
-            'auteurs' => $auteurRepository->findAll(),
+            'auteurs' => $auteurs,
         ]);
     }
 

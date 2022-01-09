@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Livre;
 use App\Form\LivreType;
 use App\Repository\LivreRepository;
+use App\Repository\GenreRepository;
+use App\Repository\AuteurRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,10 +18,15 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 class LivreController extends AbstractController
 {
     #[Route('/', name: 'livre_index', methods: ['GET'])]
-    public function index(LivreRepository $livreRepository): Response
+    public function index(LivreRepository $livreRepository, GenreRepository $genreRepository, AuteurRepository $auteurRepository): Response
     {
+        $livres = $livreRepository->findAll();
+
         return $this->render('livre/index.html.twig', [
-            'livres' => $livreRepository->findAll(),
+            'livres' => $livres,
+            'genres' => $genreRepository->findAll(),
+            'auteurs' => $auteurRepository->findAll(),
+            'dates' => $livreRepository->findDates(),
         ]);
     }
 
