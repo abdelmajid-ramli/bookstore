@@ -31,12 +31,35 @@
                 <th>Note</th>
                 <td>{{ livre.note }}</td>
             </tr>
+
+            			<tr>
+				<th>Genres</th>
+				<td>
+					{% for genre in livre.genres %}
+						<span>
+							{{ genre }}
+						</span><br>
+					{% endfor %}
+				</td>
+			</tr>
+			<tr>
+				<th>Auteurs</th>
+				<td>
+					{% for auteur in livre.auteurs %}
+						<span>
+							{{ auteur }}
+						</span><br>
+					{% endfor %}
+				</td>
+			</tr>
         </tbody>
     </table>
 
     <a href="{{ path('livre_index') }}">back to list</a>
 
-    <a href="{{ path('livre_edit', {'id': livre.id}) }}">edit</a>
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('livre_edit', {'id': livre.id}) }}">Modifier</a>
 
     {{ include('livre/_delete_form.html.twig') }}
+    {% endif %}
 {% endblock %}
