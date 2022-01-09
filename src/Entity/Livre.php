@@ -116,7 +116,7 @@ class Livre
     }
 
     public function __toString(){
-        return this->titre;
+        return $this->titre;
     }
 
     /**

@@ -92,7 +92,7 @@ class Auteur
     }
 
     public function __toString(){
-        return this->nom_prenom;
+        return $this->nom_prenom;
     }
 
     /**
