@@ -3,10 +3,13 @@
 {% block title %}Auteur index{% endblock %}
 
 {% block body %}
-    <h1>Auteur index</h1>
+    <div class=" container mb-4 mt-2 pt-2" style="background-color:#287bb5;text-align: center; color: white;font-weight: bold;">
+    <h5 style="color: white;font-weight: bold; padding-bottom:5px;">Liste des auteurs</h5>
+    </div>
+    <div class="container">
 
     <table class="table">
-        <thead>
+        <thead class="table-active">
             <tr>
                 <th>Id</th>
                 <th>Nom_prenom</th>
@@ -19,17 +22,25 @@
         <tbody>
         {% for auteur in auteurs %}
             <tr>
-                <td>{{ auteur.id }}</td>
-                <td>{{ auteur.nomPrenom }}</td>
-                <td>{{ auteur.sexe }}</td>
-                <td>{{ auteur.dateDeNaissance ? auteur.dateDeNaissance|date('Y-m-d') : '' }}</td>
-                <td>{{ auteur.nationalite }}</td>
-                <td>
-                    <a href="{{ path('auteur_show', {'id': auteur.id}) }}">Afficher</a>
+                <td class="pb-0">{{ auteur.id }}</td>
+                <td class="pb-0">{{ auteur.nomPrenom }}</td>
+                <td class="pb-0">{{ auteur.sexe }}</td>
+                <td class="pb-0">{{ auteur.dateDeNaissance ? auteur.dateDeNaissance|date('Y-m-d') : '' }}</td>
+                <td class="pb-0">{{ auteur.nationalite }}</td>
+                <td class="pb-0">
+                    <div class="row">
+                    <div class="col-4 p-0 pb-2">
+                    <a class="btn btn-success btn-sm" href="{{ path('auteur_show', {'id': auteur.id}) }}">Afficher</a>
+                    </div>
                     {% if is_granted('ROLE_ADMIN') %}
-                    <a href="{{ path('auteur_edit', {'id': auteur.id}) }}">Modifier</a>
+                    <div class="col-4 p-0 pb-2">
+                    <a class="btn btn-primary btn-sm" href="{{ path('auteur_edit', {'id': auteur.id}) }}">Modifier</a>
+                    </div>
+                    <div class="col-4 p-0 pb-2">
                     {{ include('auteur/_delete_form.html.twig') }}
+                    </div>
 					{% endif %}
+                    </div>
                 </td>
             </tr>
         {% else %}
@@ -43,4 +54,5 @@
     {% if is_granted('ROLE_ADMIN') %}
     <a href="{{ path('auteur_new') }}">Ajouter</a>
     {% endif %}
+    </div>
 {% endblock %}
