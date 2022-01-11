@@ -3,11 +3,31 @@
 {% block title %}Auteur{% endblock %}
 
 {% block body %}
-    <h1>Auteur</h1>
+    <div class=" container mb-4 mt-2 pt-2" style="background-color:#287bb5;text-align: center; color: white;font-weight: bold;">
+    <h5 style="color: white;font-weight: bold; padding-bottom:5px;">Auteur</h5>
+    </div>
+
+    <div class="container">
+
+    <div class="row mb-2">
+    <div class="col-6">
+    </div>
+    <div class="col-2">
+    <a class="btn btn-success btn-sm" href="{{ path('auteur_index') }}">liste des auteurs</a>
+    </div>
+    {% if is_granted('ROLE_ADMIN') %}
+    <div class="col-2">
+    <a class="btn btn-primary btn-sm" href="{{ path('auteur_edit', {'id': auteur.id}) }}">Modifier</a>
+    </div>
+    <div class="col-2">
+    {{ include('auteur/_delete_form.html.twig') }}
+    </div>
+    {% endif %}
+    </div>
 
     <table class="table">
         <tbody>
-            <tr>
+            <tr class="table-active">
                 <th>Id</th>
                 <td>{{ auteur.id }}</td>
             </tr>
@@ -27,25 +47,17 @@
                 <th>Nationalite</th>
                 <td>{{ auteur.nationalite }}</td>
             </tr>
-            <tr>
+            <tr class="table-info">
 				<th>Livres</th>
 				<td>
 					{% for livre in auteur.livres %}
-						<span>
-							{{ livre }}
-						</span><br>
+						<span><h6>
+							{{ livre }}</h6>
+						</span>
 					{% endfor %}
 				</td>
 			</tr>
         </tbody>
     </table>
-
-    <a href="{{ path('auteur_index') }}">liste des auteurs</a>
-
-    {% if is_granted('ROLE_ADMIN') %}
-
-    <a href="{{ path('auteur_edit', {'id': auteur.id}) }}">Modifier</a>
-
-    {{ include('auteur/_delete_form.html.twig') }}
-    {% endif %}
+    </div>
 {% endblock %}

@@ -6,7 +6,12 @@
     <div class=" container mb-4 mt-2 pt-2" style="background-color:#287bb5;text-align: center; color: white;font-weight: bold;">
     <h5 style="color: white;font-weight: bold; padding-bottom:5px;">Liste des auteurs</h5>
     </div>
+    
     <div class="container">
+
+    {% if is_granted('ROLE_ADMIN') %}
+    <a class="btn btn-success mb-2" href="{{ path('auteur_new') }}">Ajouter</a>
+    {% endif %}
 
     <table class="table">
         <thead class="table-active">
@@ -51,8 +56,5 @@
         </tbody>
     </table>
 
-    {% if is_granted('ROLE_ADMIN') %}
-    <a href="{{ path('auteur_new') }}">Ajouter</a>
-    {% endif %}
     </div>
 {% endblock %}

@@ -3,9 +3,35 @@
 {% block title %}Ajouter un auteur{% endblock %}
 
 {% block body %}
-    <h1>Cree un Auteur</h1>
+    <div class="row">
+    <div class="col-3">
+    </div>
+    <div class="col-6">
+    <div class=" container mb-4 mt-2 pt-2" style="background-color:#287bb5;text-align: center; color: white;font-weight: bold;">
+    <h5 style="color: white;font-weight: bold; padding-bottom:5px;">Ajouter un auteur</h5>
+    </div>
+    </div>
+    <div class="col-3">
+    </div>
 
+    <div class="container">
+
+    <div class="row">
+    <div class="col-3">
+    </div>
+    <div class="col-6">
     {{ include('auteur/_form.html.twig') }}
+    <div class="col-6">
+    <a class="btn btn-primary" href="{{ path('auteur_index') }}">liste des auteurs</a>
+    </div>
+    </div>
+    </div>
+    <div class="col-3">
+    </div>
 
-    <a href="{{ path('auteur_index') }}">liste des auteurs</a>
+    </div>
+
+    
+
+    </div>
 {% endblock %}

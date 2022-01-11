@@ -3,11 +3,43 @@
 {% block title %}Edit Auteur{% endblock %}
 
 {% block body %}
-    <h1>Edit Auteur</h1>
+    <div class="row">
+    <div class="col-3">
+    </div>
+    <div class="col-6">
+    <div class=" container mb-4 mt-2 pt-2" style="background-color:#287bb5;text-align: center; color: white;font-weight: bold;">
+    <h5 style="color: white;font-weight: bold; padding-bottom:5px;">Modifier un auteur</h5>
+    </div>
+    </div>
+    <div class="col-3">
+    </div>
 
+
+    <div class="container">
+
+    <div class="row">
+
+    <div class="col-3">
+    </div>
+
+    <div class="col-6">
     {{ include('auteur/_form.html.twig', {'button_label': 'Modifier'}) }}
-
-    <a href="{{ path('auteur_index') }}">list des auteurs</a>
-
+    <div class="col-4">
+    <a class="btn btn-primary btn-sm" href="{{ path('auteur_index') }}">list des auteurs</a>
+    </div>
+    <div class="col-4">
     {{ include('auteur/_delete_form.html.twig') }}
+    </div>
+    </div>
+
+    </div>
+
+    <div class="col-3">
+    </div>
+
+    </div>
+
+    
+
+    </div>
 {% endblock %}
