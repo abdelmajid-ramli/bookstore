@@ -42,8 +42,8 @@ class LivreRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('livre')
             ->andWhere('livre.date_de_parution BETWEEN :dateMin AND :dateMax')
-            ->setParameter('dateMin',  $dateMin . '-01-01')
-            ->setParameter('dateMax',  $dateMax . '-12-31')
+            ->setParameter('dateMin',  $dateMin)
+            ->setParameter('dateMax',  $dateMax)
             ->getQuery()
             ->getResult();
     }

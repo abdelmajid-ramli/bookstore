@@ -3,6 +3,7 @@
 {% block title %}Edit Livre{% endblock %}
 
 {% block body %}
+    <div class="container">
     <div style="background-color:#2596be;text-align: center; color: white;font-weight: bold;">
     <h2>Modifier Livre</h2>
     </div>
@@ -10,4 +11,5 @@
     {{ include('livre/_form.html.twig', {'button_label': 'Modifier'}) }}
     <a href="{{ path('livre_index') }}">back to list</a>
     {{ include('livre/_delete_form.html.twig') }}
+    </div>
 {% endblock %}
